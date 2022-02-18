@@ -151,10 +151,9 @@ var Template;
             Template.ƒS.Menu.create(Template.inGameMenu, buttonFunctionalities, "gameMenu");
         // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
         let scenes = [
-            { id: "Scene9", scene: Template.Scene9, name: "Scene9 Scene" },
+            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
             { id: "Tutorial", scene: Template.Tutorial, name: "Tutorial Scene" },
             { id: "Start", scene: Template.Start, name: "Start Scene" },
-            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
             { id: "Scene2", scene: Template.Scene2, name: "Scene2 Scene" },
             { id: "Scene3", scene: Template.Scene3, name: "Scene3 Scene" },
             { id: "Scene4", scene: Template.Scene4, name: "Scene4 Scene" },
@@ -163,6 +162,7 @@ var Template;
             { id: "Scene6", scene: Template.Scene6, name: "Scene6 Scene" },
             { id: "Scene7", scene: Template.Scene7, name: "Scene7 Scene" },
             { id: "Scene8", scene: Template.Scene8, name: "Scene8 Scene" },
+            { id: "Scene9", scene: Template.Scene9, name: "Scene9 Scene" },
             { id: "Scene10", scene: Template.Scene10, name: "Scene10 Scene" },
             { id: "Scene11", scene: Template.Scene11, name: "Scene11 Scene" },
             { id: "Ending1", scene: Template.Ending1, name: "Ending1 Scene" },
@@ -992,13 +992,19 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0002);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0003);
-        await Template.ƒS.Location.show(Template.locations.white);
-        //TODO Image von Geist. + creepy Sound
-        await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
+        Template.ƒS.Sound.play(Template.sound.shock0, 0.1, false);
+        await Template.ƒS.update(0.2);
+        await Template.ƒS.Location.show(Template.locations.white);
+        await Template.ƒS.update(0.2);
+        await Template.ƒS.Location.show(Template.locations.white);
+        await Template.ƒS.update(0.2);
+        await Template.ƒS.Character.hide(Template.characters.taki);
+        await Template.ƒS.Location.show(Template.locations.white);
         await Template.ƒS.update(0.2);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
+        await Template.ƒS.update(0.2);
         await Template.ƒS.Location.show(Template.locations.bedroom_day);
         await Template.ƒS.update(0.7);
         Template.PlayTextSound();

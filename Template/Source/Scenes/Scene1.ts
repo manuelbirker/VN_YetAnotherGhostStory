@@ -27,17 +27,26 @@ namespace Template {
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0003);
 
 
+    await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
+    ƒS.Sound.play(sound.shock0, 0.1, false);
+    await ƒS.update(0.2);
+  
+    await ƒS.Location.show(locations.white);
+    await ƒS.update(0.2);
 
     await ƒS.Location.show(locations.white);
-    //TODO Image von Geist. + creepy Sound
-    
-    await ƒS.Character.hide(characters.taki);
-    await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
     await ƒS.update(0.2);
+    await ƒS.Character.hide(characters.taki);
+
+    await ƒS.Location.show(locations.white);
+    await ƒS.update(0.2);
+
+
 
     
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
+    await ƒS.update(0.2);
     await ƒS.Location.show(locations.bedroom_day);
     await ƒS.update(0.7);
 
