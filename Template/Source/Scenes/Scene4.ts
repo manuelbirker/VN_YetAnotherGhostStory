@@ -2,7 +2,8 @@ namespace Template {
 
 
   export async function Scene4(): ƒS.SceneReturn {
-
+    DisplaySanityBar(false);
+    FlashLightStatus(false);
 
     await ƒS.Location.show(locations.outsideschool);
     await ƒS.update(transition.diagonalfade.duration, transition.diagonalfade.alpha, transition.diagonalfade.edge);

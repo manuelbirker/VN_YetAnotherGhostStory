@@ -10,6 +10,11 @@ document.addEventListener('mousemove', update);
 document.addEventListener('touchmove', update);
 
 
+
+
+
+/**
+
 setInterval(function(){ 
   console.log("test");
   const ghost1 = document.getElementById('ghost1');
@@ -66,5 +71,4 @@ function calcSpeed(prev, next) {
   return speed;
 
 }
-
-
+ */

@@ -481,6 +481,9 @@ declare namespace Template {
         title: string;
         sanity: string;
         ghostappear: string;
+        bgtheme1: string;
+        creepytheme1: string;
+        woosh: string;
     };
 }
 declare namespace Template {

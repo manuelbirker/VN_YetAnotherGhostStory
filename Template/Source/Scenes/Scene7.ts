@@ -24,13 +24,18 @@ namespace Template {
     // CREEPY SOUND
     PlayTextSound();
     await ƒS.Speech.tell(characters.tetsuya, dialogues.tetsuya.scene7.T0002);
-    //tetsuya scared
+    await ƒS.Character.hide(characters.tetsuya);
+    await ƒS.Character.show(characters.tetsuya, characters.tetsuya.pose.scared, ƒS.positionPercent(85, 100));
+
     PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene7.T0002);
     // Creepy sound
     PlayTextSound();
     await ƒS.Speech.tell(characters.tetsuya, dialogues.tetsuya.scene7.T0003);
-    //taki scared
+    await ƒS.Character.hide(characters.taki);
+    await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
+
+
     PlayTextSound();
     await ƒS.Speech.tell(characters.tetsuya, dialogues.tetsuya.scene7.T0004);
     PlayTextSound();

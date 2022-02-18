@@ -16,5 +16,12 @@ namespace Template {
     title: "Audio/title.mp3",
     sanity: "Audio/sanity.ogg",
     ghostappear: "Audio/ghostappear.mp3",
+
+    bgtheme1: "Audio/vntrack01.mp3",
+    creepytheme1: "Audio/creepytheme1.mp3",
+
+    woosh: "Audio/woosh.mp3",
+
+
   };
 }

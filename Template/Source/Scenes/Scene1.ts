@@ -2,6 +2,9 @@ namespace Template {
 
 
   export async function Scene1(): ƒS.SceneReturn {
+    DisplaySanityBar(false);
+    FlashLightStatus(false);
+    ƒS.Sound.fade(sound.bgtheme1, 0.01, 5, false);
 
 
     ƒS.Speech.hide();
@@ -26,11 +29,12 @@ namespace Template {
     PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0003);
 
-
+    await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
+    
     ƒS.Sound.play(sound.shock0, 0.1, false);
     await ƒS.update(0.2);
-  
+
     await ƒS.Location.show(locations.white);
     await ƒS.update(0.2);
 
@@ -43,7 +47,7 @@ namespace Template {
 
 
 
-    
+
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
     await ƒS.update(0.2);

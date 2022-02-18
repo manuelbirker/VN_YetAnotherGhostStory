@@ -2,7 +2,8 @@ namespace Template {
 
 
   export async function Scene2(): ƒS.SceneReturn {
-
+    DisplaySanityBar(false);
+    FlashLightStatus(false);
 
     await ƒS.Location.show(locations.outside);
     await ƒS.update(transition.diagonalfade.duration, transition.diagonalfade.alpha, transition.diagonalfade.edge);

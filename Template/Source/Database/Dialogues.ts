@@ -89,9 +89,9 @@ namespace Template {
                 T0001: "<span style=\"color: #2ACAEA\">Again this strange dream...</span>",
                 T0002: "<span style=\"color: #2ACAEA\">Huh? What time is it?</span>",
                 T0003: "<span style=\"color: #2ACAEA\">Woah. I totally overslept. And this is my first day at university.</span>",
-                T0004: "<span style=\"color: #2ACAEA\">I have to Hurry!</span>",
+                T0004: "<span style=\"color: #2ACAEA\">I have to Hurry</span>",
                 T0005: "<span style=\"color: #2ACAEA\">What was <span style=\"color: red\"> that?!</span> I really don't feel well but I can't miss the schools opening ceremony.</span>",
-                T0006: "<span style=\"color: #2ACAEA\">...</span>!"
+                T0006: "<span style=\"color: #2ACAEA\">...</span>"
             },
             scene2: {
                 T0000: "<span style=\"color: #2ACAEA\">The weather seems to be quite calm today.</span>",

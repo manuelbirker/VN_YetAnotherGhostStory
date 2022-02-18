@@ -116,7 +116,7 @@ var Template;
             "<hr>" +
             "<p>Code: Manuel Birker, FUDGE </p>" +
             "<p>Graphics: Manuel Birker, VRoid Studio, Noraneko-Games, Studio Mugenjohncel, </p>" +
-            "<p>Sound & Music: Manuel Birker, Kenney Game Assets </p>" +
+            "<p>Sound & Music: Manuel Birker, Kenney Game Assets, TERNOX </p>" +
             "<p>(Click outside to close)</p>";
         Template.ƒS.Text.print(credits);
     }
@@ -151,13 +151,13 @@ var Template;
             Template.ƒS.Menu.create(Template.inGameMenu, buttonFunctionalities, "gameMenu");
         // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
         let scenes = [
-            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
+            { id: "Scene7", scene: Template.Scene7, name: "Scene7 Scene" },
             { id: "Tutorial", scene: Template.Tutorial, name: "Tutorial Scene" },
             { id: "Start", scene: Template.Start, name: "Start Scene" },
+            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
             { id: "Scene2", scene: Template.Scene2, name: "Scene2 Scene" },
             { id: "Scene3", scene: Template.Scene3, name: "Scene3 Scene" },
             { id: "Scene4", scene: Template.Scene4, name: "Scene4 Scene" },
-            { id: "Scene5", scene: Template.Scene5, name: "Scene5 Scene" },
             { id: "Scene5", scene: Template.Scene5, name: "Scene5 Scene" },
             { id: "Scene6", scene: Template.Scene6, name: "Scene6 Scene" },
             { id: "Scene7", scene: Template.Scene7, name: "Scene7 Scene" },
@@ -590,9 +590,9 @@ var Template;
                 T0001: "<span style=\"color: #2ACAEA\">Again this strange dream...</span>",
                 T0002: "<span style=\"color: #2ACAEA\">Huh? What time is it?</span>",
                 T0003: "<span style=\"color: #2ACAEA\">Woah. I totally overslept. And this is my first day at university.</span>",
-                T0004: "<span style=\"color: #2ACAEA\">I have to Hurry!</span>",
+                T0004: "<span style=\"color: #2ACAEA\">I have to Hurry</span>",
                 T0005: "<span style=\"color: #2ACAEA\">What was <span style=\"color: red\"> that?!</span> I really don't feel well but I can't miss the schools opening ceremony.</span>",
-                T0006: "<span style=\"color: #2ACAEA\">...</span>!"
+                T0006: "<span style=\"color: #2ACAEA\">...</span>"
             },
             scene2: {
                 T0000: "<span style=\"color: #2ACAEA\">The weather seems to be quite calm today.</span>",
@@ -864,6 +864,9 @@ var Template;
         title: "Audio/title.mp3",
         sanity: "Audio/sanity.ogg",
         ghostappear: "Audio/ghostappear.mp3",
+        bgtheme1: "Audio/vntrack01.mp3",
+        creepytheme1: "Audio/creepytheme1.mp3",
+        woosh: "Audio/woosh.mp3",
     };
 })(Template || (Template = {}));
 var Template;
@@ -977,6 +980,9 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene1() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        Template.ƒS.Sound.fade(Template.sound.bgtheme1, 0.01, 5, false);
         Template.ƒS.Speech.hide();
         await Template.ƒS.Location.show(Template.locations.bedroom_day);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
@@ -992,6 +998,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0002);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0003);
+        await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
         Template.ƒS.Sound.play(Template.sound.shock0, 0.1, false);
         await Template.ƒS.update(0.2);
@@ -1077,6 +1084,8 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene2() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
         await Template.ƒS.Location.show(Template.locations.outside);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
@@ -1099,6 +1108,8 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene3() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
         await Template.ƒS.Location.show(Template.locations.park);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
@@ -1108,6 +1119,7 @@ var Template;
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0001);
         Template.ƒS.Character.animate(Template.characters.ghost, Template.characters.ghost.pose.noface, Template.flyLeftRight());
+        Template.ƒS.Sound.play(Template.sound.woosh, 0.5, false);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update();
@@ -1117,6 +1129,7 @@ var Template;
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         Template.ƒS.Character.animate(Template.characters.rikka, Template.characters.rikka.pose.angry, Template.flyLeftRight());
+        Template.ƒS.Sound.play(Template.sound.woosh, 0.5, false);
         await Template.ƒS.update();
         // sound
         await Template.ƒS.Character.hide(Template.characters.taki);
@@ -1142,6 +1155,8 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene4() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
         await Template.ƒS.Location.show(Template.locations.outsideschool);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
@@ -1166,6 +1181,8 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene5() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Location.show(Template.locations.classroom_day);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
@@ -1185,6 +1202,7 @@ var Template;
         await Template.ƒS.update(0.15);
         await Template.ƒS.Location.show(Template.locations.classroom_day);
         await Template.ƒS.update(0.15);
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0004);
         await Template.ƒS.Location.show(Template.locations.white);
         await Template.ƒS.update(0.15);
         await Template.ƒS.Location.show(Template.locations.black);
@@ -1196,27 +1214,14 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.black);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.update(0.15);
-        await Template.ƒS.Location.show(Template.locations.classroom_night);
-        await Template.ƒS.update(Template.transition.swirl.duration, Template.transition.swirl.alpha, Template.transition.swirl.edge);
-        Template.PlayTextSound();
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0004);
-        await Template.ƒS.update(0.15);
+        Template.ƒS.Sound.fade(Template.sound.bgtheme1, 0, 1);
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0.2, 5, false);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0005);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0006);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0007);
-        await Template.ƒS.update(0.15);
-        await Template.ƒS.Location.show(Template.locations.white);
-        await Template.ƒS.update(0.15);
-        await Template.ƒS.Location.show(Template.locations.black);
-        await Template.ƒS.update(0.15);
-        await Template.ƒS.update(0.15);
-        await Template.ƒS.Location.show(Template.locations.white);
-        await Template.ƒS.update(0.15);
-        await Template.ƒS.Location.show(Template.locations.black);
-        await Template.ƒS.update(0.15);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
         Template.ƒS.Speech.hide();
@@ -1309,13 +1314,15 @@ var Template;
         // CREEPY SOUND
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0002);
-        //tetsuya scared
+        await Template.ƒS.Character.hide(Template.characters.tetsuya);
+        await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.scared, Template.ƒS.positionPercent(85, 100));
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0002);
         // Creepy sound
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0003);
-        //taki scared
+        await Template.ƒS.Character.hide(Template.characters.taki);
+        await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0004);
         Template.PlayTextSound();

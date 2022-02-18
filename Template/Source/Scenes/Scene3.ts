@@ -2,7 +2,8 @@ namespace Template {
 
 
   export async function Scene3(): ƒS.SceneReturn {
-
+    DisplaySanityBar(false);
+    FlashLightStatus(false);
 
     await ƒS.Location.show(locations.park);
     await ƒS.update(transition.diagonalfade.duration, transition.diagonalfade.alpha, transition.diagonalfade.edge);
@@ -16,7 +17,7 @@ namespace Template {
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0001);
 
     ƒS.Character.animate(characters.ghost, characters.ghost.pose.noface, flyLeftRight());
-
+    ƒS.Sound.play(sound.woosh, 0.5, false);
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
 
@@ -27,7 +28,9 @@ namespace Template {
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0002);
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
+
     ƒS.Character.animate(characters.rikka, characters.rikka.pose.angry, flyLeftRight());
+    ƒS.Sound.play(sound.woosh, 0.5, false);
     await ƒS.update();
     // sound
 
