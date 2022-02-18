@@ -22,9 +22,9 @@ declare namespace Template {
         turnUpVolume: string;
         turndownVolume: string;
         credits: string;
-        about: string;
     };
     function buttonFunctionalities(_option: string): Promise<void>;
+    function Credits(): void;
     let dataForSave: {};
     function start(_event: Event): void;
 }
@@ -45,7 +45,7 @@ declare namespace Template {
     let minPoints: number;
     let maxPoints: number;
     let points: number;
-    function UpdateBar(): void;
+    function UpdateBar(): Promise<void>;
     function DisplaySanityBar(show: boolean): void;
     function SetPoints(num: number): void;
     function AddPoints(num: number): void;
@@ -159,6 +159,9 @@ declare namespace Template {
             scene3: {
                 T0000: string;
             };
+            scene7: {
+                T0000: string;
+            };
         };
         unknown: {
             intro: {
@@ -170,12 +173,38 @@ declare namespace Template {
                 T0000: string;
                 T0001: string;
             };
+            scene7: {
+                T0000: string;
+            };
+            scene8: {
+                T0000: string;
+            };
+            scene9: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+                T0003: string;
+            };
         };
         tetsuya: {
             scene6: {
                 T0000: string;
                 T0001: string;
                 T0002: string;
+                T0003: string;
+            };
+            scene7: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+                T0003: string;
+                T0004: string;
+                T0005: string;
+                T0006: string;
+                T0007: string;
+            };
+            scene8: {
+                T0000: string;
             };
         };
         taki: {
@@ -223,6 +252,54 @@ declare namespace Template {
                 T0002: string;
                 T0003: string;
                 T0004: string;
+                T0005: string;
+            };
+            scene7: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+                T0003: string;
+                T0004: string;
+                T0005: string;
+                T0006: string;
+            };
+            scene8: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+            };
+            scene9: {
+                T0000: string;
+                T0001: string;
+            };
+            scene10: {
+                T0000: string;
+            };
+            scene11: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+            };
+            ending1: {
+                T0000: string;
+            };
+            ending2: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+            };
+            ending3: {
+                T0000: string;
+            };
+        };
+        rikka: {
+            scene9: {
+                T0000: string;
+                T0001: string;
+                T0002: string;
+            };
+            scene10: {
+                T0000: string;
             };
         };
     };
@@ -328,6 +405,42 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        classroom_night2: {
+            name: string;
+            background: string;
+        };
+        ghost01: {
+            name: string;
+            background: string;
+        };
+        ghost02: {
+            name: string;
+            background: string;
+        };
+        ghost03: {
+            name: string;
+            background: string;
+        };
+        ending1: {
+            name: string;
+            background: string;
+        };
+        ending2: {
+            name: string;
+            background: string;
+        };
+        ending3: {
+            name: string;
+            background: string;
+        };
+        bgghost: {
+            name: string;
+            background: string;
+        };
+        parknight: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace Template {
@@ -337,6 +450,18 @@ declare namespace Template {
             selectB: string;
         };
         tutorial: {
+            selectA: string;
+            selectB: string;
+        };
+        scene7: {
+            selectA: string;
+            selectB: string;
+        };
+        scene10: {
+            selectA: string;
+            selectB: string;
+        };
+        lastsave: {
             selectA: string;
             selectB: string;
         };
@@ -354,6 +479,8 @@ declare namespace Template {
         shock3: string;
         shock4: string;
         title: string;
+        sanity: string;
+        ghostappear: string;
     };
 }
 declare namespace Template {
@@ -386,7 +513,22 @@ declare namespace Template {
     };
 }
 declare namespace Template {
+    function Ending1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Ending2(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Ending3(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function Scene1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene10(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene11(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function Scene2(): ƒS.SceneReturn;
@@ -402,6 +544,15 @@ declare namespace Template {
 }
 declare namespace Template {
     function Scene6(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene7(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene8(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Scene9(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function Start(): ƒS.SceneReturn;

@@ -88,7 +88,6 @@ namespace Template {
     turnUpVolume: "+",
     turndownVolume: "-",
     credits: "Credits",
-    about: "Controls",
   };
 
 
@@ -106,7 +105,7 @@ namespace Template {
         menu = false;
         break;
       case inGameMenu.credits:
-        // CREDIT SCENE
+        Credits();
         break;
       case inGameMenu.turnUpVolume:
         incrementSound();
@@ -115,6 +114,32 @@ namespace Template {
         decrementSound();
     }
   }
+
+
+  export function Credits(): void {
+    ƒS.Text.setClass("credits");
+    let credits =
+      "<h1>CREDITS</h1>" +
+      "<hr>" +
+      "<p>Code: Manuel Birker, FUDGE </p>" +
+      "<p>Graphics: Manuel Birker, VRoid Studio, Noraneko-Games, Studio Mugenjohncel, </p>" +
+      "<p>Sound & Music: Manuel Birker, Kenney Game Assets </p>" +
+      "<p>(Click outside to close)</p>"
+    ƒS.Text.print(credits);
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   let menu: boolean = true;
@@ -158,15 +183,30 @@ namespace Template {
 
     // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
     let scenes: ƒS.Scenes = [
-      { id: "Scene6", scene: Scene6, name: "Scene6 Scene" },
-      { id: "Scene5", scene: Scene5, name: "Scene5 Scene" },
-      { id: "Scene1", scene: Scene1, name: "Scene1 Scene" },
+      { id: "Scene9", scene: Scene9, name: "Scene9 Scene" },
+
+
       { id: "Tutorial", scene: Tutorial, name: "Tutorial Scene" },
       { id: "Start", scene: Start, name: "Start Scene" },
+      { id: "Scene1", scene: Scene1, name: "Scene1 Scene" },
       { id: "Scene2", scene: Scene2, name: "Scene2 Scene" },
       { id: "Scene3", scene: Scene3, name: "Scene3 Scene" },
-      { id: "Scene4", scene: Scene4, name: "Scene3 Scene" },
+      { id: "Scene4", scene: Scene4, name: "Scene4 Scene" },
+      { id: "Scene5", scene: Scene5, name: "Scene5 Scene" },
+      { id: "Scene5", scene: Scene5, name: "Scene5 Scene" },
+      { id: "Scene6", scene: Scene6, name: "Scene6 Scene" },
+      { id: "Scene7", scene: Scene7, name: "Scene7 Scene" },
+
+      { id: "Scene8", scene: Scene8, name: "Scene8 Scene" },
+  
+
+      { id: "Scene10", scene: Scene10, name: "Scene10 Scene" },
+      { id: "Scene11", scene: Scene11, name: "Scene11 Scene" },
+      { id: "Ending1", scene: Ending1, name: "Ending1 Scene" },
+      { id: "Ending2", scene: Ending2, name: "Ending2 Scene" },
+      { id: "Ending3", scene: Ending3, name: "Ending3 Scene" },
     ];
+
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
     dataForSave = ƒS.Progress.setData(dataForSave, uiElement);

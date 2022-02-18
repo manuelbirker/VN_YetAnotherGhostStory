@@ -17,9 +17,13 @@ namespace Template {
     await ƒS.update(0);
 
     ƒS.Speech.show();
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0000);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0001);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0002);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0003);
 
 
@@ -37,8 +41,9 @@ namespace Template {
     await ƒS.Location.show(locations.bedroom_day);
     await ƒS.update(0.7);
 
-
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0005);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene1.T0006);
 
     await ƒS.Character.hide(characters.taki);

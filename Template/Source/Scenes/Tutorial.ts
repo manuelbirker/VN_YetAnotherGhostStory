@@ -6,6 +6,9 @@ namespace Template {
     document.getElementById('save').blur();
     DisplaySanityBar(false);
     FlashLightStatus(false);
+    ƒS.Character.hideAll();
+
+
     //TEST await ƒS.Interactable.show(interactables.item1, interactables.item1.pose.normal, new ƒ.Vector2(interactables.item1.posX, interactables.item1.posY));
 
 
@@ -64,7 +67,6 @@ namespace Template {
 
 
     PlayTextSound();
-
     await ƒS.Speech.tell(characters.narrator, dialogues.narrator.tutorial.T0006);
 
 

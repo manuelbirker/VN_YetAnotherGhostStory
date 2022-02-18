@@ -83,6 +83,53 @@ namespace Template {
       background: "./Images/Backgrounds/classroom_03_night.jpg",
     },
 
+    classroom_night2: {
+      name: "Classroom Night 3",
+      background: "./Images/Backgrounds/classroom_04_night.jpg",
+    },
+
+
+    ghost01: {
+      name: "Ghost01",
+      background: "./Images/Backgrounds/bg_ghost1.png",
+    },
+
+    ghost02: {
+      name: "Ghost02",
+      background: "./Images/Backgrounds/bg_ghost2.png",
+    },
+    ghost03: {
+      name: "Ghost03",
+      background: "./Images/Backgrounds/bg_ghost3.png",
+    },
+
+
+    ending1: {
+      name: "E1",
+      background: "./Images/Backgrounds/ending1.png",
+    },
+    ending2: {
+      name: "E2",
+      background: "./Images/Backgrounds/ending2.png",
+    },
+    ending3: {
+      name: "E3",
+      background: "./Images/Backgrounds/ending3.png",
+    },
+
+    bgghost: {
+      name: "BG Ghost",
+      background: "./Images/Backgrounds/bgghost.png",
+    },
+
+
+    parknight: {
+      name: "ParkNight",
+      background: "./Images/Backgrounds/park_no_fence_night.jpg",
+    },
+
+
+
 
 
 

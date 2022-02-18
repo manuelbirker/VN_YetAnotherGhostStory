@@ -12,9 +12,11 @@ namespace Template {
 
     ƒS.Speech.show();
 
-
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene2.T0000);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene2.T0001);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene2.T0002);
 
     await ƒS.Character.hide(characters.taki);

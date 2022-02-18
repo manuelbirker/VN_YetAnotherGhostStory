@@ -85,7 +85,6 @@ var Template;
         turnUpVolume: "+",
         turndownVolume: "-",
         credits: "Credits",
-        about: "Controls",
     };
     async function buttonFunctionalities(_option) {
         console.log(_option);
@@ -101,7 +100,7 @@ var Template;
                 menu = false;
                 break;
             case Template.inGameMenu.credits:
-                // CREDIT SCENE
+                Credits();
                 break;
             case Template.inGameMenu.turnUpVolume:
                 incrementSound();
@@ -111,6 +110,18 @@ var Template;
         }
     }
     Template.buttonFunctionalities = buttonFunctionalities;
+    function Credits() {
+        Template.ƒS.Text.setClass("credits");
+        let credits = "<h1>CREDITS</h1>" +
+            "<hr>" +
+            "<p>Code: Manuel Birker, FUDGE </p>" +
+            "<p>Graphics: Manuel Birker, VRoid Studio, Noraneko-Games, Studio Mugenjohncel, </p>" +
+            "<p>Sound & Music: Manuel Birker, Kenney Game Assets </p>" +
+            "<p>(Click outside to close)</p>";
+        Template.ƒS.Text.print(credits);
+    }
+    Template.Credits = Credits;
+    ;
     let menu = true;
     document.addEventListener("keydown", hndKeypress);
     async function hndKeypress(_event) {
@@ -140,14 +151,23 @@ var Template;
             Template.ƒS.Menu.create(Template.inGameMenu, buttonFunctionalities, "gameMenu");
         // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
         let scenes = [
-            { id: "Scene6", scene: Template.Scene6, name: "Scene6 Scene" },
-            { id: "Scene5", scene: Template.Scene5, name: "Scene5 Scene" },
-            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
+            { id: "Scene9", scene: Template.Scene9, name: "Scene9 Scene" },
             { id: "Tutorial", scene: Template.Tutorial, name: "Tutorial Scene" },
             { id: "Start", scene: Template.Start, name: "Start Scene" },
+            { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
             { id: "Scene2", scene: Template.Scene2, name: "Scene2 Scene" },
             { id: "Scene3", scene: Template.Scene3, name: "Scene3 Scene" },
-            { id: "Scene4", scene: Template.Scene4, name: "Scene3 Scene" },
+            { id: "Scene4", scene: Template.Scene4, name: "Scene4 Scene" },
+            { id: "Scene5", scene: Template.Scene5, name: "Scene5 Scene" },
+            { id: "Scene5", scene: Template.Scene5, name: "Scene5 Scene" },
+            { id: "Scene6", scene: Template.Scene6, name: "Scene6 Scene" },
+            { id: "Scene7", scene: Template.Scene7, name: "Scene7 Scene" },
+            { id: "Scene8", scene: Template.Scene8, name: "Scene8 Scene" },
+            { id: "Scene10", scene: Template.Scene10, name: "Scene10 Scene" },
+            { id: "Scene11", scene: Template.Scene11, name: "Scene11 Scene" },
+            { id: "Ending1", scene: Template.Ending1, name: "Ending1 Scene" },
+            { id: "Ending2", scene: Template.Ending2, name: "Ending2 Scene" },
+            { id: "Ending3", scene: Template.Ending3, name: "Ending3 Scene" },
         ];
         let uiElement = document.querySelector("[type=interface]");
         Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
@@ -186,7 +206,7 @@ var Template;
     Template.minPoints = 0;
     Template.maxPoints = 100;
     Template.points = 0;
-    function UpdateBar() {
+    async function UpdateBar() {
         let progressbar = document.getElementById("sanity");
         progressbar.style.width = Template.points + "%";
         if (Template.points >= 85) {
@@ -219,6 +239,7 @@ var Template;
         if (Template.points < Template.maxPoints) {
             Template.points += num;
         }
+        Template.ƒS.Sound.play(Template.sound.sanity, 0.025, false);
         UpdateBar();
     }
     Template.AddPoints = AddPoints;
@@ -514,6 +535,9 @@ var Template;
             },
             scene3: {
                 T0000: "No Answer.",
+            },
+            scene7: {
+                T0000: "Taki uses his flashlight to illuminate this dark corner.",
             }
         },
         unknown: {
@@ -526,12 +550,38 @@ var Template;
                 T0000: "Hey!!",
                 T0001: "Hey you! Wake up!",
             },
+            scene7: {
+                T0000: "DON'T MOVE!",
+            },
+            scene8: {
+                T0000: "LISTEN. Don't move at any chance!!",
+            },
+            scene9: {
+                T0000: "DON'T MOVE!",
+                T0001: "LISTEN. Don't move at any chance!!",
+                T0002: "This should keep it away for a while.",
+                T0003: "Are you guys okay?",
+            },
         },
         tetsuya: {
             scene6: {
                 T0000: "Aw, I'm glad you're okay. My name is <span style=\"color: red\"> Tetsuya </span>. I'm a student here at this school.",
                 T0001: "Soon after I entered my classroom I felt a strange feeling in my guts. Then I fainted.",
                 T0002: "I just found you here lying on the floor. You've lost your consciousness.",
+                T0003: "I have a strange feeling about this place. We should check out if there are other students and leave this place as soon as possible.",
+            },
+            scene7: {
+                T0000: "IS ANYBODY HERE?!",
+                T0001: "Oh I'm sorry, you're right..",
+                T0002: "What was that?!",
+                T0003: "It comes from this dark corner of the classroom. Can you use your phone cam to light it out?",
+                T0004: "WOAH and again!",
+                T0005: "Can you see something?",
+                T0006: "Wh- wh- WHAT THE HECK IS THIS?!",
+                T0007: "Is.. this a GHOST?!",
+            },
+            scene8: {
+                T0000: "Are you okay?!",
             }
         },
         taki: {
@@ -578,9 +628,57 @@ var Template;
                 T0001: "Who are you?",
                 T0002: "<span style=\"color: #2ACAEA\">He's got the same school uniform. Guess he's also a student here at this school.</span>",
                 T0003: "<span style=\"color: #2ACAEA\">I should turn on my phone cam.</span>",
-                T0004: "Thank you for helping me. What happened?",
+                T0004: "Thank you for helping me. I'm Taki. What is going on here?",
+                T0005: "Good idea. Let's check the other classrooms",
+            },
+            scene7: {
+                T0000: "Shh! Don't be that loud.",
+                T0001: "<span style=\"color: #2ACAEA\"> Well I guess there's noone else besides us here...</span>",
+                T0002: "I - I dont know?!",
+                T0003: "<span style=\"color: #2ACAEA\">I'm really scared but let's check what is going on.</span>",
+                T0004: "I'm not sure yet.'",
+                T0005: "Wait.. something's moving.",
+                T0006: "We have to get out of here!",
+            },
+            scene8: {
+                T0000: "OUCH",
+                T0001: "<span style=\"color: #2ACAEA\"> The Ghost attacked me...</span>",
+                T0002: "Yes.. I guess..",
+            },
+            scene9: {
+                T0000: "Yes.. Who are you? How did you make this ghost disapear?!",
+                T0001: "My phone flashlight? Hmm..",
+            },
+            scene10: {
+                T0000: "<span style=\"color: #2ACAEA\">Finally the exit..</span>",
+            },
+            scene11: {
+                T0000: "<span style=\"color: #2ACAEA\">We ran like there was no tomorrow without looking back.. until we reached the park.</span>",
+                T0001: "<span style=\"color: #2ACAEA\">We didn't realize that the sky was dark. Something is wrong. But I'm glad we made it out alive...</span>",
+                T0002: "<span style=\"color: #2ACAEA\">The ghost disapeared after using my flashlight.. she was right.</span>",
+            },
+            ending1: {
+                T0000: "<span style=\"color: #2ACAEA\">For our surprise we got outrunned by ghosts... Is this the end?!</span>",
+            },
+            ending2: {
+                T0000: "<span style=\"color: #2ACAEA\">We made it out alive.</span>",
+                T0001: "<span style=\"color: #2ACAEA\">But who is this girl?</span>",
+                T0002: "<span style=\"color: #2ACAEA\">Im sure this is not the last time I saw her.</span>",
+            },
+            ending3: {
+                T0000: "<span style=\"color: #2ACAEA\">The last thing I saw before I fainted was the face of a creepy ghost...</span>",
             },
         },
+        rikka: {
+            scene9: {
+                T0000: "My name is Rikka. We don't have much time for introductions and explanations. We need to get out here!",
+                T0001: "If we encounter another ghost. Point the beam of your flashlight in the direction of the ghost!",
+                T0002: "Let us hurry and leave this place now!",
+            },
+            scene10: {
+                T0000: "Use. Your. FLASHLIGHT!"
+            }
+        }
     };
 })(Template || (Template = {}));
 var Template;
@@ -687,6 +785,42 @@ var Template;
             name: "Classroom Night",
             background: "./Images/Backgrounds/classroom_03_night.jpg",
         },
+        classroom_night2: {
+            name: "Classroom Night 3",
+            background: "./Images/Backgrounds/classroom_04_night.jpg",
+        },
+        ghost01: {
+            name: "Ghost01",
+            background: "./Images/Backgrounds/bg_ghost1.png",
+        },
+        ghost02: {
+            name: "Ghost02",
+            background: "./Images/Backgrounds/bg_ghost2.png",
+        },
+        ghost03: {
+            name: "Ghost03",
+            background: "./Images/Backgrounds/bg_ghost3.png",
+        },
+        ending1: {
+            name: "E1",
+            background: "./Images/Backgrounds/ending1.png",
+        },
+        ending2: {
+            name: "E2",
+            background: "./Images/Backgrounds/ending2.png",
+        },
+        ending3: {
+            name: "E3",
+            background: "./Images/Backgrounds/ending3.png",
+        },
+        bgghost: {
+            name: "BG Ghost",
+            background: "./Images/Backgrounds/bgghost.png",
+        },
+        parknight: {
+            name: "ParkNight",
+            background: "./Images/Backgrounds/park_no_fence_night.jpg",
+        },
     };
 })(Template || (Template = {}));
 var Template;
@@ -699,6 +833,18 @@ var Template;
         tutorial: {
             selectA: "Okay.",
             selectB: "Got it!",
+        },
+        scene7: {
+            selectA: "Run Away",
+            selectB: "Don't move",
+        },
+        scene10: {
+            selectA: "Run Away",
+            selectB: "Point light in direction of the ghost",
+        },
+        lastsave: {
+            selectA: "<span style=\"color: green\">Yes</span>",
+            selectB: "<span style=\"color: red\">No</span>",
         }
     };
 })(Template || (Template = {}));
@@ -716,6 +862,8 @@ var Template;
         shock3: "Audio/shock3.mp3",
         shock4: "Audio/shock4.mp3",
         title: "Audio/title.mp3",
+        sanity: "Audio/sanity.ogg",
+        ghostappear: "Audio/ghostappear.mp3",
     };
 })(Template || (Template = {}));
 var Template;
@@ -751,6 +899,83 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function Ending1() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        Template.ƒS.Character.hideAll();
+        await Template.ƒS.Location.show(Template.locations.ending1);
+        await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
+        Template.SetPoints(0);
+        Template.ƒS.Text.print("Do you want to load the last autosave?");
+        let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
+        switch (dialogue1) {
+            case Template.answerOptions.lastsave.selectA:
+                return Template.Scene7();
+                break;
+            case Template.answerOptions.lastsave.selectB:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                await Template.ƒS.update(1);
+                return Template.Tutorial();
+                break;
+        }
+    }
+    Template.Ending1 = Ending1;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Ending2() {
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        Template.ƒS.Character.hideAll();
+        Template.SetPoints(0);
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        await Template.ƒS.Location.show(Template.locations.ending2);
+        await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0002);
+        Template.ƒS.Text.print("This is the true ending. Thanks for playing.");
+    }
+    Template.Ending2 = Ending2;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Ending3() {
+        Template.SetPoints(0);
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        Template.ƒS.Character.hideAll();
+        await Template.ƒS.Location.show(Template.locations.ending3);
+        await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
+        Template.PlayAnswerSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
+        Template.PlayAnswerSound();
+        Template.ƒS.Text.print("Do you want to load the last autosave?");
+        let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
+        switch (dialogue1) {
+            case Template.answerOptions.lastsave.selectA:
+                await Template.ƒS.update(1);
+                return Template.Scene7();
+                break;
+            case Template.answerOptions.lastsave.selectB:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                await Template.ƒS.update(1);
+                return Template.Tutorial();
+                break;
+        }
+    }
+    Template.Ending3 = Ending3;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function Scene1() {
         Template.ƒS.Speech.hide();
         await Template.ƒS.Location.show(Template.locations.bedroom_day);
@@ -759,9 +984,13 @@ var Template;
         await Template.ƒS.update(0.5);
         await Template.ƒS.update(0);
         Template.ƒS.Speech.show();
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0001);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0002);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0003);
         await Template.ƒS.Location.show(Template.locations.white);
         //TODO Image von Geist. + creepy Sound
@@ -772,7 +1001,9 @@ var Template;
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.Location.show(Template.locations.bedroom_day);
         await Template.ƒS.update(0.7);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0005);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene1.T0006);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
@@ -784,14 +1015,72 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function Scene10() {
+        await Template.ƒS.Location.show(Template.locations.bgghost);
+        await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
+        Template.PlayTextSound();
+        let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.scene10, "class");
+        switch (dialogue1) {
+            case Template.answerOptions.scene10.selectA:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                Template.AddPoints(20);
+                await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene10.T0000);
+                await Template.ƒS.update(1);
+                if (Template.points >= Template.maxPoints) {
+                    return Template.Ending3();
+                }
+                return Scene10();
+                break;
+            case Template.answerOptions.scene10.selectB:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0002);
+                await Template.ƒS.update(1);
+                return Template.Scene11();
+                break;
+        }
+    }
+    Template.Scene10 = Scene10;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene11() {
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene10.T0000);
+        Template.DisplaySanityBar(false);
+        Template.FlashLightStatus(false);
+        Template.ƒS.Character.hideAll();
+        await Template.ƒS.Location.show(Template.locations.parknight);
+        await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0001);
+        if (Template.GetPoints() > 90) {
+            await Template.ƒS.update(1);
+            return Template.Ending1();
+        }
+        else {
+            await Template.ƒS.update(2);
+            return Template.Ending2();
+        }
+    }
+    Template.Scene11 = Scene11;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function Scene2() {
         await Template.ƒS.Location.show(Template.locations.outside);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.5);
         Template.ƒS.Speech.show();
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene2.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene2.T0001);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene2.T0002);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
@@ -808,13 +1097,16 @@ var Template;
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.5);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0001);
         Template.ƒS.Character.animate(Template.characters.ghost, Template.characters.ghost.pose.noface, Template.flyLeftRight());
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update();
         // sound
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0002);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
@@ -823,11 +1115,15 @@ var Template;
         // sound
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0003);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0004);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dialogues.narrator.scene3.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0005);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
@@ -845,9 +1141,13 @@ var Template;
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.5);
         Template.ƒS.Speech.show();
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene4.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene4.T0001);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene4.T0002);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene4.T0003);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
@@ -865,9 +1165,13 @@ var Template;
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.5);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0001);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0002);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0003);
         await Template.ƒS.Location.show(Template.locations.white);
         await Template.ƒS.update(0.15);
@@ -888,10 +1192,14 @@ var Template;
         await Template.ƒS.update(0.15);
         await Template.ƒS.Location.show(Template.locations.classroom_night);
         await Template.ƒS.update(Template.transition.swirl.duration, Template.transition.swirl.alpha, Template.transition.swirl.edge);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0004);
         await Template.ƒS.update(0.15);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0005);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0006);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene5.T0007);
         await Template.ƒS.update(0.15);
         await Template.ƒS.Location.show(Template.locations.white);
@@ -918,39 +1226,203 @@ var Template;
         Template.FlashLightStatus(false);
         await Template.ƒS.Location.show(Template.locations.black);
         await Template.ƒS.update(0.15);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene6.T0000);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene6.T0001);
         Template.DisplaySanityBar(true);
         Template.AddPoints(10);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0001);
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0002);
         Template.FlashLightStatus(true);
         await Template.ƒS.Location.show(Template.locations.classroom_night);
         await Template.ƒS.update(0.15);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0003);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.normal, Template.ƒS.positionPercent(85, 100));
         await Template.ƒS.update(0.5);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.sad, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.5);
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0003);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0002);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
         await Template.ƒS.update(0.2);
         await Template.ƒS.Character.hide(Template.characters.tetsuya);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.happy, Template.ƒS.positionPercent(85, 100));
         await Template.ƒS.update(0.2);
+        Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene6.T0000);
-        Template.SpawnGhost();
-        Template.Pause(true);
-        await Template.IsPaused();
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0000);
+        await Template.ƒS.Character.hide(Template.characters.tetsuya);
+        await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.normal, Template.ƒS.positionPercent(85, 100));
+        await Template.ƒS.update(0.2);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene6.T0002);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0004);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene6.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene6.T0003);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene6.T0005);
+        // Battlesystem WIP
+        //SpawnGhost();
+        //Pause(true);
+        // await IsPaused();
         await Template.ƒS.Character.hide(Template.characters.tetsuya);
         await Template.ƒS.Character.hide(Template.characters.taki);
         Template.ƒS.Speech.clear();
         Template.ƒS.Speech.hide();
         await Template.ƒS.update(1);
-        // return Scene5();
+        return Template.Scene7();
     }
     Template.Scene6 = Scene6;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene7() {
+        await Template.ƒS.Location.show(Template.locations.classroom_night2);
+        await Template.ƒS.update(0.15);
+        await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.normal, Template.ƒS.positionPercent(85, 100));
+        await Template.ƒS.update(0.5);
+        await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
+        await Template.ƒS.update(0.5);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0001);
+        // CREEPY SOUND
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0002);
+        //tetsuya scared
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0002);
+        // Creepy sound
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0003);
+        //taki scared
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0004);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dialogues.narrator.scene7.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Location.show(Template.locations.black);
+        await Template.ƒS.Character.hide(Template.characters.tetsuya);
+        await Template.ƒS.Character.hide(Template.characters.taki);
+        await Template.ƒS.update(1);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0005);
+        Template.ƒS.Speech.clear();
+        Template.ƒS.Speech.hide();
+        Template.FlashLightStatus(false);
+        await Template.ƒS.Location.show(Template.locations.ghost01);
+        await Template.ƒS.update(0.2);
+        await Template.ƒS.Location.show(Template.locations.black);
+        await Template.ƒS.update(1);
+        Template.AddPoints(5);
+        Template.FlashLightStatus(true);
+        Template.ƒS.Sound.play(Template.sound.ghostappear, 0.1, false);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0006);
+        await Template.ƒS.Location.show(Template.locations.ghost03);
+        await Template.ƒS.update(1);
+        await Template.ƒS.Location.show(Template.locations.black);
+        await Template.ƒS.update(0.3);
+        Template.AddPoints(5);
+        await Template.ƒS.Location.show(Template.locations.ghost02);
+        await Template.ƒS.update(1);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0007);
+        Template.AddPoints(10);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0006);
+        await Template.ƒS.update(0.15);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene7.T0000);
+        await Template.ƒS.update(1);
+        return Template.Scene8();
+    }
+    Template.Scene7 = Scene7;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene8() {
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene8.T0000);
+        let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.scene7, "class");
+        switch (dialogue1) {
+            case Template.answerOptions.scene7.selectA:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                Template.AddPoints(20);
+                await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene8.T0000);
+                await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene8.T0001);
+                await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene8.T0000);
+                await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene8.T0002);
+                if (Template.points >= Template.maxPoints) {
+                    return Template.Ending3();
+                }
+                await Template.ƒS.update(1);
+                return Scene8();
+                break;
+            case Template.answerOptions.scene7.selectB:
+                Template.PlayAnswerSound();
+                Template.PlayTextSound();
+                await Template.ƒS.update(1);
+                return Template.Scene9();
+                break;
+        }
+    }
+    Template.Scene8 = Scene8;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Scene9() {
+        await Template.ƒS.Location.show(Template.locations.white);
+        await Template.ƒS.update(0.5);
+        await Template.ƒS.Location.show(Template.locations.ghost02);
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Location.show(Template.locations.white);
+        await Template.ƒS.update(0.3);
+        await Template.ƒS.Location.show(Template.locations.ghost02);
+        await Template.ƒS.update(0.2);
+        await Template.ƒS.Location.show(Template.locations.white);
+        await Template.ƒS.update(0.1);
+        await Template.ƒS.Location.show(Template.locations.black);
+        await Template.ƒS.update();
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene9.T0002);
+        await Template.ƒS.Location.show(Template.locations.classroom_night2);
+        await Template.ƒS.update(0.35);
+        await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
+        await Template.ƒS.update(0.5);
+        await Template.ƒS.Character.show(Template.characters.rikka, Template.characters.rikka.pose.normal, Template.ƒS.positionPercent(85, 125));
+        await Template.ƒS.update(0.5);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.unknown, Template.dialogues.unknown.scene9.T0003);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene9.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene9.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene9.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene9.T0001);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene9.T0002);
+        await Template.ƒS.update(1);
+        return Template.Scene10();
+    }
+    Template.Scene9 = Scene9;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -1019,6 +1491,7 @@ var Template;
         document.getElementById('save').blur();
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
+        Template.ƒS.Character.hideAll();
         //TEST await ƒS.Interactable.show(interactables.item1, interactables.item1.pose.normal, new ƒ.Vector2(interactables.item1.posX, interactables.item1.posY));
         await Template.ƒS.Location.show(Template.locations.tutorial01);
         await Template.ƒS.update(0.25);

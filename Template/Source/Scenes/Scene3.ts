@@ -10,8 +10,9 @@ namespace Template {
 
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
     await ƒS.update(0.5);
-
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0000);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0001);
 
     ƒS.Character.animate(characters.ghost, characters.ghost.pose.noface, flyLeftRight());
@@ -22,7 +23,7 @@ namespace Template {
     await ƒS.update();
     // sound
 
-
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0002);
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
@@ -32,12 +33,15 @@ namespace Template {
 
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.scared, ƒS.positionPercent(15, 100));
-
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0003);
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0004);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.narrator, dialogues.narrator.scene3.T0000);
+    PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene3.T0005);
 
 

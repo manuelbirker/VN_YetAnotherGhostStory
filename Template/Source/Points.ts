@@ -7,7 +7,7 @@ namespace Template {
     export let points = 0;
 
 
-    export function UpdateBar() {
+    export async function UpdateBar() {
         let progressbar = document.getElementById("sanity");
 
         progressbar.style.width = points + "%";
@@ -23,6 +23,9 @@ namespace Template {
             progressbar.style.backgroundColor = "green";
 
         }
+
+
+
 
 
     }
@@ -44,6 +47,10 @@ namespace Template {
         }
 
 
+
+
+
+
     }
 
 
@@ -62,6 +69,7 @@ namespace Template {
             points += num;
         }
 
+        ƒS.Sound.play(sound.sanity, 0.025, false);
         UpdateBar();
     }
     export function SubPoints(num: number) {

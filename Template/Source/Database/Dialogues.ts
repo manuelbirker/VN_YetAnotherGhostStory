@@ -29,6 +29,9 @@ namespace Template {
             },
             scene3: {
                 T0000: "No Answer.",
+            },
+            scene7: {
+                T0000: "Taki uses his flashlight to illuminate this dark corner.",
             }
 
         },
@@ -43,15 +46,41 @@ namespace Template {
                 T0001: "Hey you! Wake up!",
 
             },
+            scene7: {
+                T0000: "DON'T MOVE!",
 
+            },
+            scene8: {
+
+                T0000: "LISTEN. Don't move at any chance!!",
+            },
+            scene9: {
+                T0000: "DON'T MOVE!",
+                T0001: "LISTEN. Don't move at any chance!!",
+                T0002: "This should keep it away for a while.",
+                T0003: "Are you guys okay?",
+            },
         },
         tetsuya: {
             scene6: {
                 T0000: "Aw, I'm glad you're okay. My name is <span style=\"color: red\"> Tetsuya </span>. I'm a student here at this school.",
                 T0001: "Soon after I entered my classroom I felt a strange feeling in my guts. Then I fainted.",
                 T0002: "I just found you here lying on the floor. You've lost your consciousness.",
+                T0003: "I have a strange feeling about this place. We should check out if there are other students and leave this place as soon as possible.",
+            },
+            scene7: {
+                T0000: "IS ANYBODY HERE?!",
+                T0001: "Oh I'm sorry, you're right..",
+                T0002: "What was that?!",
+                T0003: "It comes from this dark corner of the classroom. Can you use your phone cam to light it out?",
+                T0004: "WOAH and again!",
 
-           
+                T0005: "Can you see something?",
+                T0006: "Wh- wh- WHAT THE HECK IS THIS?!",
+                T0007: "Is.. this a GHOST?!",
+            },
+            scene8: {
+                T0000: "Are you okay?!",
             }
         },
         taki: {
@@ -100,10 +129,65 @@ namespace Template {
                 T0001: "Who are you?",
                 T0002: "<span style=\"color: #2ACAEA\">He's got the same school uniform. Guess he's also a student here at this school.</span>",
                 T0003: "<span style=\"color: #2ACAEA\">I should turn on my phone cam.</span>",
-                T0004: "Thank you for helping me. What happened?",
+                T0004: "Thank you for helping me. I'm Taki. What is going on here?",
+                T0005: "Good idea. Let's check the other classrooms",
+
+            },
+            scene7: {
+                T0000: "Shh! Don't be that loud.",
+                T0001: "<span style=\"color: #2ACAEA\"> Well I guess there's noone else besides us here...</span>",
+                T0002: "I - I dont know?!",
+                T0003: "<span style=\"color: #2ACAEA\">I'm really scared but let's check what is going on.</span>",
+                T0004: "I'm not sure yet.'",
+                T0005: "Wait.. something's moving.",
+                T0006: "We have to get out of here!",
+            },
+            scene8: {
+                T0000: "OUCH",
+                T0001: "<span style=\"color: #2ACAEA\"> The Ghost attacked me...</span>",
+                T0002: "Yes.. I guess..",
+
+            },
+            scene9: {
+                T0000: "Yes.. Who are you? How did you make this ghost disapear?!",
+                T0001: "My phone flashlight? Hmm..",
+            },
+            scene10:{
+                T0000: "<span style=\"color: #2ACAEA\">Finally the exit..</span>",
+            },
+            scene11:{
+                T0000: "<span style=\"color: #2ACAEA\">We ran like there was no tomorrow without looking back.. until we reached the park.</span>",
+                T0001: "<span style=\"color: #2ACAEA\">We didn't realize that the sky was dark. Something is wrong. But I'm glad we made it out alive...</span>",
+                T0002: "<span style=\"color: #2ACAEA\">The ghost disapeared after using my flashlight.. she was right.</span>",
+            },
+            ending1:{
+                T0000: "<span style=\"color: #2ACAEA\">For our surprise we got outrunned by ghosts... Is this the end?!</span>",
+
+            },
+            ending2:{
+                T0000: "<span style=\"color: #2ACAEA\">We made it out alive.</span>",
+                T0001: "<span style=\"color: #2ACAEA\">But who is this girl?</span>",
+                T0002: "<span style=\"color: #2ACAEA\">Im sure this is not the last time I saw her.</span>",
+
+            },
+            ending3:{
+                T0000: "<span style=\"color: #2ACAEA\">The last thing I saw before I fainted was the face of a creepy ghost...</span>",
 
             },
         },
+
+        rikka: {
+            scene9: {
+                T0000: "My name is Rikka. We don't have much time for introductions and explanations. We need to get out here!",
+                T0001: "If we encounter another ghost. Point the beam of your flashlight in the direction of the ghost!",
+                T0002: "Let us hurry and leave this place now!",
+
+            
+            },
+            scene10:{
+                T0000: "Use. Your. FLASHLIGHT!"
+            }
+        }
 
 
     };

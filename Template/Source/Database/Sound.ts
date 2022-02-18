@@ -14,5 +14,7 @@ namespace Template {
     shock4: "Audio/shock4.mp3",
 
     title: "Audio/title.mp3",
+    sanity: "Audio/sanity.ogg",
+    ghostappear: "Audio/ghostappear.mp3",
   };
 }
