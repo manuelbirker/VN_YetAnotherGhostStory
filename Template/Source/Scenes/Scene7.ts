@@ -3,6 +3,8 @@ namespace Template {
 
   export async function Scene7(): ƒS.SceneReturn {
 
+    DisplaySanityBar(true);
+    FlashLightStatus(true);
 
     await ƒS.Location.show(locations.classroom_night2);
     await ƒS.update(0.15);

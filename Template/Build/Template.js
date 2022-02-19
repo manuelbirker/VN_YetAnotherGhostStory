@@ -1062,7 +1062,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene10.T0000);
                 await Template.ƒS.update(1);
                 if (Template.points >= Template.maxPoints) {
-                    return Template.Ending3();
+                    return Template.Ending1();
                 }
                 return Scene10();
                 break;
@@ -1104,9 +1104,9 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0000);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0001);
-        if (Template.GetPoints() > 90) {
+        if (Template.GetPoints() >= 80) {
             await Template.ƒS.update(1);
-            return Template.Ending1();
+            return Template.Ending3();
         }
         else {
             await Template.ƒS.update(2);
@@ -1348,6 +1348,8 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene7() {
+        Template.DisplaySanityBar(true);
+        Template.FlashLightStatus(true);
         await Template.ƒS.Location.show(Template.locations.classroom_night2);
         await Template.ƒS.update(0.15);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.normal, Template.ƒS.positionPercent(85, 100));
@@ -1438,7 +1440,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene8.T0000);
                 await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene8.T0002);
                 if (Template.points >= Template.maxPoints) {
-                    return Template.Ending3();
+                    return Template.Ending1();
                 }
                 await Template.ƒS.update(1);
                 return Scene8();

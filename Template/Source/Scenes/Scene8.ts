@@ -23,7 +23,7 @@ namespace Template {
    
         if (points >= maxPoints) {
 
-          return Ending3();
+          return Ending1();
         }
 
         await ƒS.update(1);
