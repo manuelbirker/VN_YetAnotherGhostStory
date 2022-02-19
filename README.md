@@ -18,6 +18,7 @@ Abgabe Visual Novel @HFU
 <img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Taki.png"></img>
 <img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Rikka.png"></img>
 <img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Tetsuya.png"></img>
+<img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Ghosts.png"></img>
 
 </p>
 
