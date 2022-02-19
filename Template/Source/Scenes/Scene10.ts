@@ -28,7 +28,7 @@ namespace Template {
 
                 if (points >= maxPoints) {
 
-                    return Ending1();
+                    return Ending3();
                 }
 
                 return Scene10();

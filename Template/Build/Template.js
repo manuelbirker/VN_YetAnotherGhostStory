@@ -1062,7 +1062,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.rikka, Template.dialogues.rikka.scene10.T0000);
                 await Template.ƒS.update(1);
                 if (Template.points >= Template.maxPoints) {
-                    return Template.Ending1();
+                    return Template.Ending3();
                 }
                 return Scene10();
                 break;
@@ -1106,7 +1106,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0001);
         if (Template.GetPoints() >= 80) {
             await Template.ƒS.update(1);
-            return Template.Ending3();
+            return Template.Ending1();
         }
         else {
             await Template.ƒS.update(2);
@@ -1440,7 +1440,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene8.T0000);
                 await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene8.T0002);
                 if (Template.points >= Template.maxPoints) {
-                    return Template.Ending1();
+                    return Template.Ending3();
                 }
                 await Template.ƒS.update(1);
                 return Scene8();

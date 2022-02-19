@@ -32,7 +32,7 @@ namespace Template {
         if (GetPoints() >= 80) {
 
             await ƒS.update(1);
-            return Ending3();
+            return Ending1();
         } else {
             await ƒS.update(2);
             return Ending2();
