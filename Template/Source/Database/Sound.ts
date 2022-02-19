@@ -12,7 +12,7 @@ namespace Template {
     shock2: "Audio/shock2.mp3",
     shock3: "Audio/shock3.mp3",
     shock4: "Audio/shock4.mp3",
-
+ 
     title: "Audio/title.mp3",
     sanity: "Audio/sanity.ogg",
     ghostappear: "Audio/ghostappear.mp3",
