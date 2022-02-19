@@ -151,7 +151,7 @@ var Template;
             Template.ƒS.Menu.create(Template.inGameMenu, buttonFunctionalities, "gameMenu");
         // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
         let scenes = [
-            { id: "Scene7", scene: Template.Scene7, name: "Scene7 Scene" },
+            { id: "Ending2", scene: Template.Ending2, name: "Ending2 Scene" },
             { id: "Tutorial", scene: Template.Tutorial, name: "Tutorial Scene" },
             { id: "Start", scene: Template.Start, name: "Start Scene" },
             { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
@@ -867,6 +867,9 @@ var Template;
         bgtheme1: "Audio/vntrack01.mp3",
         creepytheme1: "Audio/creepytheme1.mp3",
         woosh: "Audio/woosh.mp3",
+        ghostappear2: "Audio/ghostappear2.mp3",
+        ghostappear3: "Audio/ghostappear3.mp3",
+        attack: "Audio/attack.mp3",
     };
 })(Template || (Template = {}));
 var Template;
@@ -906,12 +909,13 @@ var Template;
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
         await Template.ƒS.Location.show(Template.locations.ending1);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
         Template.SetPoints(0);
-        Template.ƒS.Text.print("Do you want to load the last autosave?");
+        Template.ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
             case Template.answerOptions.lastsave.selectA:
@@ -920,8 +924,7 @@ var Template;
             case Template.answerOptions.lastsave.selectB:
                 Template.PlayAnswerSound();
                 Template.PlayTextSound();
-                await Template.ƒS.update(1);
-                return Template.Tutorial();
+                window.location.reload();
                 break;
         }
     }
@@ -933,6 +936,7 @@ var Template;
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
         Template.SetPoints(0);
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
@@ -944,7 +948,17 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0001);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0002);
-        Template.ƒS.Text.print("This is the true ending. Thanks for playing.");
+        Template.ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br> Press ESC to start over again. There are 3 Endings to explore!");
+        Template.PlayAnswerSound();
+        let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
+        switch (dialogue1) {
+            case Template.answerOptions.lastsave.selectA:
+                await Template.ƒS.update(1);
+                return Template.Start();
+                break;
+            case Template.answerOptions.lastsave.selectB:
+                window.location.reload();
+        }
     }
     Template.Ending2 = Ending2;
 })(Template || (Template = {}));
@@ -955,12 +969,13 @@ var Template;
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
         await Template.ƒS.Location.show(Template.locations.ending3);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayAnswerSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
         Template.PlayAnswerSound();
-        Template.ƒS.Text.print("Do you want to load the last autosave?");
+        Template.ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
             case Template.answerOptions.lastsave.selectA:
@@ -970,8 +985,7 @@ var Template;
             case Template.answerOptions.lastsave.selectB:
                 Template.PlayAnswerSound();
                 Template.PlayTextSound();
-                await Template.ƒS.update(1);
-                return Template.Tutorial();
+                window.location.reload();
                 break;
         }
     }
@@ -1029,12 +1043,14 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene10() {
+        Template.ƒS.Sound.play(Template.sound.ghostappear, 0.05, false);
         await Template.ƒS.Location.show(Template.locations.bgghost);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayTextSound();
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.scene10, "class");
         switch (dialogue1) {
             case Template.answerOptions.scene10.selectA:
+                Template.ƒS.Sound.play(Template.sound.shock0, 0.2, false);
                 Template.PlayAnswerSound();
                 Template.PlayTextSound();
                 Template.AddPoints(20);
@@ -1048,6 +1064,18 @@ var Template;
             case Template.answerOptions.scene10.selectB:
                 Template.PlayAnswerSound();
                 Template.PlayTextSound();
+                await Template.ƒS.Location.show(Template.locations.black);
+                await Template.ƒS.update(0.2);
+                Template.ƒS.Sound.play(Template.sound.attack, 0.01, false);
+                await Template.ƒS.Location.show(Template.locations.white);
+                await Template.ƒS.update(0.3);
+                await Template.ƒS.Location.show(Template.locations.black);
+                await Template.ƒS.update(0.4);
+                Template.ƒS.Sound.play(Template.sound.attack, 0.02, false);
+                await Template.ƒS.Location.show(Template.locations.white);
+                await Template.ƒS.update(0.5);
+                await Template.ƒS.Location.show(Template.locations.black);
+                await Template.ƒS.update(0.5);
                 await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene11.T0002);
                 await Template.ƒS.update(1);
                 return Template.Scene11();
@@ -1059,6 +1087,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene11() {
+        Template.ƒS.Character.hideAll();
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene10.T0000);
         Template.DisplaySanityBar(false);
@@ -1313,6 +1342,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0001);
         // CREEPY SOUND
         Template.PlayTextSound();
+        Template.ƒS.Sound.play(Template.sound.ghostappear3, 0.1, false);
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0002);
         await Template.ƒS.Character.hide(Template.characters.tetsuya);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.scared, Template.ƒS.positionPercent(85, 100));
@@ -1323,6 +1353,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0003);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.scared, Template.ƒS.positionPercent(15, 100));
+        Template.ƒS.Sound.play(Template.sound.ghostappear3, 0.1, false);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0004);
         Template.PlayTextSound();
@@ -1337,20 +1368,22 @@ var Template;
         Template.ƒS.Speech.clear();
         Template.ƒS.Speech.hide();
         Template.FlashLightStatus(false);
+        Template.ƒS.Sound.play(Template.sound.ghostappear3, 0.05, false);
         await Template.ƒS.Location.show(Template.locations.ghost01);
         await Template.ƒS.update(0.2);
         await Template.ƒS.Location.show(Template.locations.black);
         await Template.ƒS.update(1);
         Template.AddPoints(5);
         Template.FlashLightStatus(true);
-        Template.ƒS.Sound.play(Template.sound.ghostappear, 0.1, false);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0006);
+        Template.ƒS.Sound.play(Template.sound.ghostappear, 0.05, false);
         await Template.ƒS.Location.show(Template.locations.ghost03);
         await Template.ƒS.update(1);
         await Template.ƒS.Location.show(Template.locations.black);
         await Template.ƒS.update(0.3);
         Template.AddPoints(5);
+        Template.ƒS.Sound.play(Template.sound.ghostappear2, 0.3, false);
         await Template.ƒS.Location.show(Template.locations.ghost02);
         await Template.ƒS.update(1);
         Template.PlayTextSound();
@@ -1374,6 +1407,7 @@ var Template;
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.scene7, "class");
         switch (dialogue1) {
             case Template.answerOptions.scene7.selectA:
+                Template.ƒS.Sound.play(Template.sound.shock0, 0.2, false);
                 Template.PlayAnswerSound();
                 Template.PlayTextSound();
                 Template.AddPoints(20);
@@ -1400,12 +1434,14 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene9() {
+        Template.ƒS.Sound.play(Template.sound.attack, 0.0, false);
         await Template.ƒS.Location.show(Template.locations.white);
         await Template.ƒS.update(0.5);
         await Template.ƒS.Location.show(Template.locations.ghost02);
         await Template.ƒS.update(0.4);
         await Template.ƒS.Location.show(Template.locations.white);
         await Template.ƒS.update(0.3);
+        Template.ƒS.Sound.play(Template.sound.attack, 0.2, false);
         await Template.ƒS.Location.show(Template.locations.ghost02);
         await Template.ƒS.update(0.2);
         await Template.ƒS.Location.show(Template.locations.white);

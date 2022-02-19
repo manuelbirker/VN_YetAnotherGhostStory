@@ -3,7 +3,7 @@ namespace Template {
 
     export async function Scene11(): ƒS.SceneReturn {
 
-
+        ƒS.Character.hideAll();
 
 
 

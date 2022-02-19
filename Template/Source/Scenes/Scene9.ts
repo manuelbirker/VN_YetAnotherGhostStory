@@ -4,15 +4,18 @@ namespace Template {
   export async function Scene9(): ƒS.SceneReturn {
 
 
-
+    ƒS.Sound.play(sound.attack, 0.0, false);
     await ƒS.Location.show(locations.white);
     await ƒS.update(0.5);
+
     await ƒS.Location.show(locations.ghost02);
     await ƒS.update(0.4);
+
     await ƒS.Location.show(locations.white);
-    await ƒS.update(0.3);
+    await ƒS.update(0.3);    ƒS.Sound.play(sound.attack, 0.2, false);
     await ƒS.Location.show(locations.ghost02);
     await ƒS.update(0.2);
+
     await ƒS.Location.show(locations.white);
     await ƒS.update(0.1);
     await ƒS.Location.show(locations.black);

@@ -22,6 +22,10 @@ namespace Template {
 
     woosh: "Audio/woosh.mp3",
 
+    ghostappear2: "Audio/ghostappear2.mp3",
+    ghostappear3: "Audio/ghostappear3.mp3",
+
+    attack: "Audio/attack.mp3",
 
   };
 }

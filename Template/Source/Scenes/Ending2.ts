@@ -5,6 +5,7 @@ namespace Template {
         DisplaySanityBar(false);
         FlashLightStatus(false);
         ƒS.Character.hideAll();
+        ƒS.Sound.fade(sound.title, 0.2, 0.1, false);
 
 
 
@@ -26,7 +27,27 @@ namespace Template {
         await ƒS.Speech.tell(characters.taki, dialogues.taki.ending2.T0002);
 
 
-        ƒS.Text.print("This is the true ending. Thanks for playing.");
+        ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br> Press ESC to start over again. There are 3 Endings to explore!");
+
+
+
+        PlayAnswerSound();
+        let dialogue1 = await ƒS.Menu.getInput(answerOptions.lastsave, "class");
+
+        switch (dialogue1) {
+            case answerOptions.lastsave.selectA:
+
+                await ƒS.update(1);
+                return Start();
+
+                break;
+            case answerOptions.lastsave.selectB:
+                window.location.reload();
+
+        }
+
+
+
 
     }
 }

@@ -183,9 +183,8 @@ namespace Template {
 
     // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
     let scenes: ƒS.Scenes = [
-      { id: "Scene7", scene: Scene7, name: "Scene7 Scene" },
-
-
+    
+      { id: "Ending2", scene: Ending2, name: "Ending2 Scene" },
       { id: "Tutorial", scene: Tutorial, name: "Tutorial Scene" },
       { id: "Start", scene: Start, name: "Start Scene" },
       { id: "Scene1", scene: Scene1, name: "Scene1 Scene" },

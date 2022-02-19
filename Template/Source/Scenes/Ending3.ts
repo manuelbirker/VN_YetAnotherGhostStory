@@ -6,6 +6,7 @@ namespace Template {
         DisplaySanityBar(false);
         FlashLightStatus(false);
         ƒS.Character.hideAll();
+        ƒS.Sound.fade(sound.title, 0.2, 0.1, false);
 
         await ƒS.Location.show(locations.ending3);
         await ƒS.update(transition.diagonalfade.duration, transition.diagonalfade.alpha, transition.diagonalfade.edge);
@@ -18,7 +19,7 @@ namespace Template {
 
 
         PlayAnswerSound();
-        ƒS.Text.print("Do you want to load the last autosave?");
+        ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
         let dialogue1 = await ƒS.Menu.getInput(answerOptions.lastsave, "class");
 
         switch (dialogue1) {
@@ -32,9 +33,7 @@ namespace Template {
                 PlayAnswerSound();
                 PlayTextSound();
 
-
-                await ƒS.update(1);
-                return Tutorial();
+                window.location.reload();
 
 
 

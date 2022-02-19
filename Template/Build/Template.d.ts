@@ -484,6 +484,9 @@ declare namespace Template {
         bgtheme1: string;
         creepytheme1: string;
         woosh: string;
+        ghostappear2: string;
+        ghostappear3: string;
+        attack: string;
     };
 }
 declare namespace Template {
