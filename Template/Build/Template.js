@@ -621,7 +621,7 @@ var Template;
                 T0000: "Wh.. what happened?!",
                 T0001: "Who are you?",
                 T0002: "<span style=\"color: #2ACAEA\">He's got the same school uniform. Guess he's also a student here at this school.</span>",
-                T0003: "<span style=\"color: #2ACAEA\">I should turn on my phone cam.</span>",
+                T0003: "<span style=\"color: #2ACAEA\">I should turn on my phone light.</span>",
                 T0004: "Thank you for helping me. I'm Taki. What is going on here?",
                 T0005: "Good idea. Let's check the other classrooms",
             },
