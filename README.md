@@ -8,11 +8,23 @@ Abgabe Visual Novel @HFU
 <p align="center">
 <a href="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Template.html">Play Novel</a> &nbsp; | &nbsp; 
 <a href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/VN_YetAnotherGhostStory.zip">Download Code</a> &nbsp; | &nbsp;
-<a  href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/Konzept.pdf">Concept</a> &nbsp; | &nbsp; </p>
+<a  href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/Konzept.pdf">Concept</a> &nbsp; | &nbsp; 
  
  <br>
 
 <hr>
+
+<h1> M E E T - T H E - C H A R A C T E R S</h1>
+<img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Taki.png"></img>
+<img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Rikka.png"></img>
+<img src="https://raw.githubusercontent.com/manuelbirker/VN_YetAnotherGhostStory/main/Template/Steckbriefe/Tetsuya.png"></img>
+
+</p>
+
+
+
+
+
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU
