@@ -82,12 +82,12 @@ namespace Template {
   }
 
   export let inGameMenu = {
-
     close: "Close",
     turnUpVolume: "+",
     turndownVolume: "-",
     credits: "Credits",
   };
+
 
 
   export async function buttonFunctionalities(_option: string): Promise<void> {
@@ -164,7 +164,7 @@ namespace Template {
 
 
   export let dataForSave = {
-
+    points: 0,
   };
 
   window.addEventListener("load", start);
@@ -177,7 +177,7 @@ namespace Template {
 
     // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
     let scenes: ƒS.Scenes = [
-    
+
 
       { id: "Tutorial", scene: Tutorial, name: "Tutorial Scene" },
 

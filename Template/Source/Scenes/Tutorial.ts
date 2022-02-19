@@ -8,7 +8,7 @@ namespace Template {
     FlashLightStatus(false);
     ƒS.Character.hideAll();
 
-   
+
     //TEST await ƒS.Interactable.show(interactables.item1, interactables.item1.pose.normal, new ƒ.Vector2(interactables.item1.posX, interactables.item1.posY));
 
 
@@ -16,6 +16,10 @@ namespace Template {
     await ƒS.update(0.25);
 
     ƒS.Speech.show();
+
+    PlayTextSound();
+
+
 
     PlayTextSound();
 

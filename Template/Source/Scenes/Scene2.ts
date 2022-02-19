@@ -20,12 +20,43 @@ namespace Template {
     PlayTextSound();
     await ƒS.Speech.tell(characters.taki, dialogues.taki.scene2.T0002);
 
-    await ƒS.Character.hide(characters.taki);
-    ƒS.Speech.clear();
-    ƒS.Speech.hide();
 
-    await ƒS.update(1);
-    return Scene3();
+    PlayTextSound();
+    await ƒS.Speech.tell(characters.taki, "<span style=\"color: #2ACAEA\">Should i directly head to the school or should I take the route through the park?</span>");
+
+
+
+
+    let parkornot = await ƒS.Menu.getInput(answerOptions.walkSelection, "class");
+
+    switch (parkornot) {
+      case answerOptions.walkSelection.selectA:
+        PlayAnswerSound();
+        await ƒS.Character.hide(characters.taki);
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
+
+        await ƒS.update(1);
+        return Scene3();
+        break;
+      case answerOptions.walkSelection.selectB:
+        PlayAnswerSound();
+        await ƒS.Character.hide(characters.taki);
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
+
+        await ƒS.update(1);
+        return Scene4();
+        break;
+    }
+
+    await ƒS.update(0.5);
+
+
+
+
+
+
 
   }
 

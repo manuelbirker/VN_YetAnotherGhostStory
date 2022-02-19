@@ -21,7 +21,14 @@ namespace Template {
         lastsave: {
             selectA: "<span style=\"color: green\">Yes</span>",
             selectB: "<span style=\"color: red\">No</span>",
+        },
+         walkSelection: {
+            selectA: "Detour through the Park",
+            selectB: "Direct way to school",
         }
+
+
+
 };
 
 

@@ -136,7 +136,9 @@ var Template;
                 break;
         }
     }
-    Template.dataForSave = {};
+    Template.dataForSave = {
+        points: 0,
+    };
     window.addEventListener("load", start);
     function start(_event) {
         gameMenu =
@@ -837,6 +839,10 @@ var Template;
         lastsave: {
             selectA: "<span style=\"color: green\">Yes</span>",
             selectB: "<span style=\"color: red\">No</span>",
+        },
+        walkSelection: {
+            selectA: "Detour through the Park",
+            selectB: "Direct way to school",
         }
     };
 })(Template || (Template = {}));
@@ -1125,11 +1131,28 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene2.T0001);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene2.T0002);
-        await Template.ƒS.Character.hide(Template.characters.taki);
-        Template.ƒS.Speech.clear();
-        Template.ƒS.Speech.hide();
-        await Template.ƒS.update(1);
-        return Template.Scene3();
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, "<span style=\"color: #2ACAEA\">Should i directly head to the school or should I take the route through the park?</span>");
+        let parkornot = await Template.ƒS.Menu.getInput(Template.answerOptions.walkSelection, "class");
+        switch (parkornot) {
+            case Template.answerOptions.walkSelection.selectA:
+                Template.PlayAnswerSound();
+                await Template.ƒS.Character.hide(Template.characters.taki);
+                Template.ƒS.Speech.clear();
+                Template.ƒS.Speech.hide();
+                await Template.ƒS.update(1);
+                return Template.Scene3();
+                break;
+            case Template.answerOptions.walkSelection.selectB:
+                Template.PlayAnswerSound();
+                await Template.ƒS.Character.hide(Template.characters.taki);
+                Template.ƒS.Speech.clear();
+                Template.ƒS.Speech.hide();
+                await Template.ƒS.update(1);
+                return Template.Scene4();
+                break;
+        }
+        await Template.ƒS.update(0.5);
     }
     Template.Scene2 = Scene2;
 })(Template || (Template = {}));
@@ -1544,6 +1567,7 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.tutorial01);
         await Template.ƒS.update(0.25);
         Template.ƒS.Speech.show();
+        Template.PlayTextSound();
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.narrator, Template.dialogues.narrator.tutorial.T0000);
         let skipTutorial = await Template.ƒS.Menu.getInput(Template.answerOptions.skipTutorial, "class");

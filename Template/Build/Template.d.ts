@@ -23,7 +23,9 @@ declare namespace Template {
     };
     function buttonFunctionalities(_option: string): Promise<void>;
     function Credits(): void;
-    let dataForSave: {};
+    let dataForSave: {
+        points: number;
+    };
     function start(_event: Event): void;
 }
 declare namespace Template {
@@ -461,6 +463,10 @@ declare namespace Template {
             selectB: string;
         };
         lastsave: {
+            selectA: string;
+            selectB: string;
+        };
+        walkSelection: {
             selectA: string;
             selectB: string;
         };
