@@ -2,7 +2,7 @@
 <h1> Y E T - A N O T H E R - G H O S T - S T O R Y</h1>
 <p align="center">
 Abgabe Visual Novel @HFU
-</p><p align="center"><img src="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Images/splash.gif"></img>
+</p><p align="center"><img src="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Images/splash2.gif"></img>
 
 </p> 
 <p align="center">
