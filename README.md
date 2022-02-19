@@ -2,9 +2,9 @@
 <h1> Y E T - A N O T H E R - G H O S T - S T O R Y</h1>
 <p align="center">
 Abgabe Visual Novel @HFU
-</p><p align="center">
-<img src="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Images/splash.gif"></img>
-</p>
+</p><p align="center"><img src="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Images/splash.gif"></img>
+
+</p> 
 <p align="center">
 <a href="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Template.html">Play Novel</a> &nbsp; | &nbsp; 
 <a href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/VN_YetAnotherGhostStory.zip">Download Code</a> &nbsp; | &nbsp;
