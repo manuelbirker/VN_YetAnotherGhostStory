@@ -1,15 +1,27 @@
-[Play Novel] (https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Template.html)
-[Download Code] (https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/VN_YetAnotherGhostStory.zip)
-[Concept] https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/Konzept.pdf
+
+<h1> Y E T - A N O T H E R - G H O S T - S T O R Y</h1>
+<p align="center">
+Abgabe Visual Novel @HFU
+</p><p align="center">
+<img src="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Images/splash.gif"></img>
+</p>
+<p align="center">
+<a href="https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Template.html">Play Novel</a> &nbsp; | &nbsp; 
+<a href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/VN_YetAnotherGhostStory.zip">Download Code</a> &nbsp; | &nbsp;
+<a  href="https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/Konzept.pdf">Concept</a> &nbsp; | &nbsp; </p>
+ 
+ <br>
+
+<hr>
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU
 
 | Nr | Bezeichnung           | Inhalt                                                                                                                                                                                                                                                                         |
 |---:|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    | Titel                 |
-|    | Name                  |
-|    | Matrikelnummer        |
+|    | Titel                 | Yet Another Ghost Story
+|    | Name                  | Birker, Manuel
+|    | Matrikelnummer        | 265530
 |  1 | Konzeption     | Die Story der Visual Novel wird in einer kurzen Inhaltsangabe beschrieben und der Konzeption beigefügt. In dieser sind jegliche Diagramme, Scribbles sowie entweder ein Storyboard, ein Drehbuch oder Ähnliches enthalten.                                                                                                                            |
 |  2 | Charakter-Konzept     | Kommen Archetypen zum Einsatz? Welche anderweitigen Charaktermodelle existieren (Steckbriefe)?                                                                                                                                                                                |
 |  3 | Auswahlmöglichkeiten | Dialogoptionen stellen _branching plots_ zur Verfügung und lassen den Spieler zu einem gewissen Grad selbstbestimmt handeln. Sind derartige Entscheidungen vorhanden und unterscheidet sich der Dialog je nach getätigter Auswahl?                                                                                                                                                     |
