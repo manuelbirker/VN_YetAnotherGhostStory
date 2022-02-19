@@ -79,7 +79,7 @@ var Template;
     }
     Template.showCredits = showCredits;
     Template.inGameMenu = {
-        close: "Close",
+        close: "Close (M)",
         turnUpVolume: "+",
         turndownVolume: "-",
         credits: "Credits",
@@ -1364,7 +1364,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0001);
         // CREEPY SOUND
         Template.PlayTextSound();
-        Template.ƒS.Sound.play(Template.sound.grudge, 0.75, false);
+        Template.ƒS.Sound.play(Template.sound.grudge, 0.3, false);
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0002);
         await Template.ƒS.Character.hide(Template.characters.tetsuya);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.scared, Template.ƒS.positionPercent(85, 100));

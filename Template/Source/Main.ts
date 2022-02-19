@@ -82,7 +82,7 @@ namespace Template {
   }
 
   export let inGameMenu = {
-    close: "Close",
+    close: "Close (M)",
     turnUpVolume: "+",
     turndownVolume: "-",
     credits: "Credits",

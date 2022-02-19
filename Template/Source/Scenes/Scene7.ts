@@ -24,7 +24,7 @@ namespace Template {
     // CREEPY SOUND
     PlayTextSound();
    
-    ƒS.Sound.play(sound.grudge, 0.75, false);
+    ƒS.Sound.play(sound.grudge, 0.3, false);
     await ƒS.Speech.tell(characters.tetsuya, dialogues.tetsuya.scene7.T0002);
     await ƒS.Character.hide(characters.tetsuya);
     await ƒS.Character.show(characters.tetsuya, characters.tetsuya.pose.scared, ƒS.positionPercent(85, 100));
