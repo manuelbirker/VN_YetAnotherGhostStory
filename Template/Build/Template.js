@@ -777,7 +777,7 @@ var Template;
         },
         classroom_night: {
             name: "Classroom Night",
-            background: "./Images/Backgrounds/classroom_03_night.jpg",
+            background: "./Images/Backgrounds/Classroom_03_night.jpg",
         },
         classroom_night2: {
             name: "Classroom Night 3",
