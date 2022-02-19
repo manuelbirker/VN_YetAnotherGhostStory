@@ -1,9 +1,6 @@
-# FUDGE_Story
-A FUDGE module for the easy development of interactive stories, visual novels and simple adventure games
-
-
-# Reference
-- [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
+[Play Novel] (https://manuelbirker.github.io/VN_YetAnotherGhostStory/Template/Template.html)
+[Download Code] (https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/VN_YetAnotherGhostStory.zip)
+[Concept] https://github.com/manuelbirker/VN_YetAnotherGhostStory/blob/main/Konzept.pdf
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU
