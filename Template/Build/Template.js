@@ -905,21 +905,23 @@ var Template;
 var Template;
 (function (Template) {
     async function Ending1() {
-        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
+        Template.SetPoints(0);
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
-        await Template.ƒS.Location.show(Template.locations.ending1);
+        await Template.ƒS.Location.show(Template.locations.ending3);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
-        Template.PlayTextSound();
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
-        Template.SetPoints(0);
+        Template.PlayAnswerSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
         await Template.ƒS.Speech.hide();
-        Template.ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
+        Template.PlayAnswerSound();
+        Template.ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
             case Template.answerOptions.lastsave.selectA:
+                await Template.ƒS.update(1);
                 return Template.Scene7();
                 break;
             case Template.answerOptions.lastsave.selectB:
@@ -968,23 +970,21 @@ var Template;
 var Template;
 (function (Template) {
     async function Ending3() {
-        Template.SetPoints(0);
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
-        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
-        await Template.ƒS.Location.show(Template.locations.ending3);
+        await Template.ƒS.Location.show(Template.locations.ending1);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
-        Template.PlayAnswerSound();
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
+        Template.PlayTextSound();
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
+        Template.SetPoints(0);
         await Template.ƒS.Speech.hide();
-        Template.PlayAnswerSound();
-        Template.ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
+        Template.ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
             case Template.answerOptions.lastsave.selectA:
-                await Template.ƒS.update(1);
                 return Template.Scene7();
                 break;
             case Template.answerOptions.lastsave.selectB:
