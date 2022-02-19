@@ -2,6 +2,7 @@ namespace Template {
 
 
     export async function Ending2(): ƒS.SceneReturn {
+        ƒS.Sound.fade(sound.creepytheme1, 0, 0.1, false);
         DisplaySanityBar(false);
         FlashLightStatus(false);
         ƒS.Character.hideAll();
@@ -25,9 +26,9 @@ namespace Template {
         await ƒS.Speech.tell(characters.taki, dialogues.taki.ending2.T0001);
         PlayTextSound();
         await ƒS.Speech.tell(characters.taki, dialogues.taki.ending2.T0002);
+        await ƒS.Speech.hide();
 
-
-        ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br> Press ESC to start over again. There are 3 Endings to explore!");
+        ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br>Do you want to play again? There are 3 Endings to explore!");
 
 
 

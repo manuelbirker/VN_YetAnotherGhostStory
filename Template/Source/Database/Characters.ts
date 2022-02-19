@@ -32,6 +32,7 @@ namespace Template {
         scared: "./Images/Characters/Rikka/rikka_scared.png",
         sad: "./Images/Characters/Rikka/rikka_sad.png",
         happy: "./Images/Characters/Rikka/rikka_happy.png",
+        angry_rev: "./Images/Characters/Rikka/rikka_angry_rev.png",
         none: "",
       },
     },

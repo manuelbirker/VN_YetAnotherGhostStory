@@ -29,7 +29,7 @@ namespace Template {
     await ƒS.Character.hide(characters.taki);
     await ƒS.Character.show(characters.taki, characters.taki.pose.normal, ƒS.positionPercent(15, 100));
 
-    ƒS.Character.animate(characters.rikka, characters.rikka.pose.angry, flyLeftRight());
+    ƒS.Character.animate(characters.rikka, characters.rikka.pose.angry_rev, flyLeftRight());
     ƒS.Sound.play(sound.woosh, 0.5, false);
     await ƒS.update();
     // sound

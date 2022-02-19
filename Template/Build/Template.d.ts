@@ -16,8 +16,6 @@ declare namespace Template {
     function decrementSound(): void;
     function showCredits(): void;
     let inGameMenu: {
-        save: string;
-        load: string;
         close: string;
         turnUpVolume: string;
         turndownVolume: string;
@@ -99,6 +97,7 @@ declare namespace Template {
                 scared: string;
                 sad: string;
                 happy: string;
+                angry_rev: string;
                 none: string;
             };
         };
@@ -487,6 +486,7 @@ declare namespace Template {
         ghostappear2: string;
         ghostappear3: string;
         attack: string;
+        grudge: string;
     };
 }
 declare namespace Template {

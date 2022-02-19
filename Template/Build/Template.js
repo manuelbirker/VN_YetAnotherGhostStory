@@ -79,8 +79,6 @@ var Template;
     }
     Template.showCredits = showCredits;
     Template.inGameMenu = {
-        save: "Save",
-        load: "Load",
         close: "Close",
         turnUpVolume: "+",
         turndownVolume: "-",
@@ -89,12 +87,6 @@ var Template;
     async function buttonFunctionalities(_option) {
         console.log(_option);
         switch (_option) {
-            case Template.inGameMenu.save:
-                await Template.ƒS.Progress.save();
-                break;
-            case Template.inGameMenu.load:
-                await Template.ƒS.Progress.load();
-                break;
             case Template.inGameMenu.close:
                 gameMenu.close();
                 menu = false;
@@ -116,7 +108,7 @@ var Template;
             "<hr>" +
             "<p>Code: Manuel Birker, FUDGE </p>" +
             "<p>Graphics: Manuel Birker, VRoid Studio, Noraneko-Games, Studio Mugenjohncel, </p>" +
-            "<p>Sound & Music: Manuel Birker, Kenney Game Assets, TERNOX </p>" +
+            "<p>Sound & Music: Manuel Birker, Kenney Game Assets, TERNOX, HorrorAudio </p>" +
             "<p>(Click outside to close)</p>";
         Template.ƒS.Text.print(credits);
     }
@@ -151,7 +143,6 @@ var Template;
             Template.ƒS.Menu.create(Template.inGameMenu, buttonFunctionalities, "gameMenu");
         // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
         let scenes = [
-            { id: "Ending2", scene: Template.Ending2, name: "Ending2 Scene" },
             { id: "Tutorial", scene: Template.Tutorial, name: "Tutorial Scene" },
             { id: "Start", scene: Template.Start, name: "Start Scene" },
             { id: "Scene1", scene: Template.Scene1, name: "Scene1 Scene" },
@@ -475,6 +466,7 @@ var Template;
                 scared: "./Images/Characters/Rikka/rikka_scared.png",
                 sad: "./Images/Characters/Rikka/rikka_sad.png",
                 happy: "./Images/Characters/Rikka/rikka_happy.png",
+                angry_rev: "./Images/Characters/Rikka/rikka_angry_rev.png",
                 none: "",
             },
         },
@@ -870,6 +862,7 @@ var Template;
         ghostappear2: "Audio/ghostappear2.mp3",
         ghostappear3: "Audio/ghostappear3.mp3",
         attack: "Audio/attack.mp3",
+        grudge: "Audio/grudgereverb.wav",
     };
 })(Template || (Template = {}));
 var Template;
@@ -906,6 +899,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Ending1() {
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
@@ -915,6 +909,7 @@ var Template;
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
         Template.SetPoints(0);
+        await Template.ƒS.Speech.hide();
         Template.ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
@@ -933,6 +928,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Ending2() {
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
@@ -948,7 +944,8 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0001);
         Template.PlayTextSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending2.T0002);
-        Template.ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br> Press ESC to start over again. There are 3 Endings to explore!");
+        await Template.ƒS.Speech.hide();
+        Template.ƒS.Text.print("<b>This is the true ending.</b> Thanks for playing. <br>Do you want to play again? There are 3 Endings to explore!");
         Template.PlayAnswerSound();
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
         switch (dialogue1) {
@@ -969,11 +966,13 @@ var Template;
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0, 0.1, false);
         Template.ƒS.Sound.fade(Template.sound.title, 0.2, 0.1, false);
         await Template.ƒS.Location.show(Template.locations.ending3);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayAnswerSound();
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
+        await Template.ƒS.Speech.hide();
         Template.PlayAnswerSound();
         Template.ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
         let dialogue1 = await Template.ƒS.Menu.getInput(Template.answerOptions.lastsave, "class");
@@ -1157,7 +1156,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene3.T0002);
         await Template.ƒS.Character.hide(Template.characters.taki);
         await Template.ƒS.Character.show(Template.characters.taki, Template.characters.taki.pose.normal, Template.ƒS.positionPercent(15, 100));
-        Template.ƒS.Character.animate(Template.characters.rikka, Template.characters.rikka.pose.angry, Template.flyLeftRight());
+        Template.ƒS.Character.animate(Template.characters.rikka, Template.characters.rikka.pose.angry_rev, Template.flyLeftRight());
         Template.ƒS.Sound.play(Template.sound.woosh, 0.5, false);
         await Template.ƒS.update();
         // sound
@@ -1342,7 +1341,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.scene7.T0001);
         // CREEPY SOUND
         Template.PlayTextSound();
-        Template.ƒS.Sound.play(Template.sound.ghostappear3, 0.1, false);
+        Template.ƒS.Sound.play(Template.sound.grudge, 0.75, false);
         await Template.ƒS.Speech.tell(Template.characters.tetsuya, Template.dialogues.tetsuya.scene7.T0002);
         await Template.ƒS.Character.hide(Template.characters.tetsuya);
         await Template.ƒS.Character.show(Template.characters.tetsuya, Template.characters.tetsuya.pose.scared, Template.ƒS.positionPercent(85, 100));
@@ -1537,7 +1536,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Tutorial() {
-        document.getElementById('save').blur();
+        document.getElementById('close').blur();
         Template.DisplaySanityBar(false);
         Template.FlashLightStatus(false);
         Template.ƒS.Character.hideAll();

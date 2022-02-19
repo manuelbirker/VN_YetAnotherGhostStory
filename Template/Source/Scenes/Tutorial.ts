@@ -3,12 +3,12 @@ namespace Template {
 
   export async function Tutorial(): ƒS.SceneReturn {
 
-    document.getElementById('save').blur();
+    document.getElementById('close').blur();
     DisplaySanityBar(false);
     FlashLightStatus(false);
     ƒS.Character.hideAll();
 
-
+   
     //TEST await ƒS.Interactable.show(interactables.item1, interactables.item1.pose.normal, new ƒ.Vector2(interactables.item1.posX, interactables.item1.posY));
 
 

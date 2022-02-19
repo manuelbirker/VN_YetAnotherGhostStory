@@ -6,6 +6,9 @@ namespace Template {
         DisplaySanityBar(false);
         FlashLightStatus(false);
         ƒS.Character.hideAll();
+
+        ƒS.Sound.fade(sound.creepytheme1, 0, 0.1, false);
+
         ƒS.Sound.fade(sound.title, 0.2, 0.1, false);
 
         await ƒS.Location.show(locations.ending3);
@@ -15,6 +18,7 @@ namespace Template {
 
         PlayAnswerSound();
         await ƒS.Speech.tell(characters.taki, dialogues.taki.ending3.T0000);
+        await ƒS.Speech.hide();
 
 
 

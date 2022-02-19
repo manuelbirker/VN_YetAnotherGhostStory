@@ -2,6 +2,8 @@ namespace Template {
 
 
     export async function Ending1(): ƒS.SceneReturn {
+
+        ƒS.Sound.fade(sound.creepytheme1, 0, 0.1, false);
         DisplaySanityBar(false);
         FlashLightStatus(false);
         ƒS.Character.hideAll();
@@ -21,7 +23,8 @@ namespace Template {
         await ƒS.Speech.tell(characters.taki, dialogues.taki.ending1.T0000);
         
         SetPoints(0);
-    
+        await ƒS.Speech.hide();
+
 
         ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
         let dialogue1 = await ƒS.Menu.getInput(answerOptions.lastsave, "class");

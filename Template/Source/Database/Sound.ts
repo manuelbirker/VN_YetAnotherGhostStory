@@ -26,6 +26,6 @@ namespace Template {
     ghostappear3: "Audio/ghostappear3.mp3",
 
     attack: "Audio/attack.mp3",
-
+    grudge: "Audio/grudgereverb.wav",
   };
 }
