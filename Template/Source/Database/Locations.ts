@@ -85,7 +85,7 @@ namespace Template {
 
     classroom_night2: {
       name: "Classroom Night 3",
-      background: "./Images/Backgrounds/classroom_04_night.jpg",
+      background: "./Images/Backgrounds/Classroom_04_night.jpg",
     },
 
 
