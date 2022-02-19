@@ -2,7 +2,7 @@ namespace Template {
 
 
   export async function Scene7(): ƒS.SceneReturn {
-
+    ƒS.Sound.fade(sound.creepytheme1, 0.2, 5, false);
     DisplaySanityBar(true);
     FlashLightStatus(true);
 

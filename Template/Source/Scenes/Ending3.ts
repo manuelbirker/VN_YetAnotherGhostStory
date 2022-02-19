@@ -30,7 +30,7 @@ namespace Template {
 
 
         PlayTextSound();
-        await ƒS.Speech.tell(characters.taki, dialogues.taki.ending1.T0000);
+        await ƒS.Speech.tell(characters.taki, dialogues.taki.ending3.T0000);
         
         SetPoints(0);
         await ƒS.Speech.hide();

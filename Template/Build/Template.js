@@ -914,7 +914,7 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.ending3);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayAnswerSound();
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
         await Template.ƒS.Speech.hide();
         Template.PlayAnswerSound();
         Template.ƒS.Text.print("This is one of the two Bad Endings. Do you want to load the last autosave?");
@@ -978,7 +978,7 @@ var Template;
         await Template.ƒS.Location.show(Template.locations.ending1);
         await Template.ƒS.update(Template.transition.diagonalfade.duration, Template.transition.diagonalfade.alpha, Template.transition.diagonalfade.edge);
         Template.PlayTextSound();
-        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending1.T0000);
+        await Template.ƒS.Speech.tell(Template.characters.taki, Template.dialogues.taki.ending3.T0000);
         Template.SetPoints(0);
         await Template.ƒS.Speech.hide();
         Template.ƒS.Text.print("This is one of the two bad endings. Do you want to load the last autosave?");
@@ -1348,6 +1348,7 @@ var Template;
 var Template;
 (function (Template) {
     async function Scene7() {
+        Template.ƒS.Sound.fade(Template.sound.creepytheme1, 0.2, 5, false);
         Template.DisplaySanityBar(true);
         Template.FlashLightStatus(true);
         await Template.ƒS.Location.show(Template.locations.classroom_night2);
